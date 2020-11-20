@@ -14,4 +14,6 @@ Current Status of Project:
 
     Milestone 1 ready for submission
     SRS "Would You Rather" version 1.1
-    Milestone 2 in progress..
+    Milestone 2 ready for submission
+    SDD "Would You Rather"
+    Design Phase..
