@@ -6,16 +6,16 @@
   <link rel="stylesheet" href="style2.css"/>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald">
 </head>
-<body>
+<body onload="genQuestion()">
 <h1> Would You Rather? - A conversation party game!</h1>
 <h2> <A HREF = "main.html">Main</A> <A HREF = "statistics.html">Statistics</A> <A HREF = "about.html">About</A> </h2>
-<h3><a name="Question">*Would you rather Option 1 or Option 2?*</a></h3>
+<h3> <a id="Question">-</a></h3>
 
 <button onclick="window.location.href='/page2'">Option 1</button>
 <button onclick="window.location.href='/page2'">Option 2</button>
 
 <p><button onclick="window.location.href='\gen_question.html'">Generate Another Question</button></p>
 
-
+<script src="random.js"></script>
 </body>
 </html>
