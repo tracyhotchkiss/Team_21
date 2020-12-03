@@ -1,0 +1,23 @@
+{
+  "name": "team_21",
+  "version": "1.0.0",
+  "description": "“Would You Rather” Is a conversation party game where players take turns posing a dilemma in the form of a question beginning with “would you rather”.1 The dilemma, being a problem with two possibilities, neither of which is acceptable or preferable. Team 21 wishes to create an application for people wanting randomized generated questions. The overall goals of the system are:\r   1.    Provide access to an easy to use website of “Would you rather” questions that will be randomly generated at the push of a button. \r   2.    Allow users to respond to the “Would you rather” questions and provide fun user stats based on user responses.",
+  "main": "random.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tracyhotchkiss/Team_21.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tracyhotchkiss/Team_21/issues"
+  },
+  "homepage": "https://github.com/tracyhotchkiss/Team_21#readme",
+  "dependencies": {
+    "xml-formatter": "^2.4.0",
+    "xml2json": "^0.12.0"
+  }
+}
