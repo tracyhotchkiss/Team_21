@@ -1,5 +1,3 @@
-
-
 let myQuestions = ['Would you rather have telepathy or telekinesis?',
   'Would you rather it be hot all the time or cold all the time?',
   'Would you rather control space or time?',
@@ -52,6 +50,39 @@ function getRandomQuestion() {
 function genQuestion(id){
   document.getElementById("Question").innerHTML = getRandomQuestion();
 }
-console.log(getRandomQuestion());
+
+// Updates the statistics of the question with a given ID and option selected
+function updateOption(id, option) {
+    const fs = require("fs")
+    const xmlParser = require("xml2json")
+    const formatXml = require("xml-formatter")
+    
+    fs.readFile("./statistics.xml", function(err, data) {
+    const xmlObj = xmlParser.toJson(data, {reversible: true, object: true})
+    const questionsArray = xmlObj["questions"]["question"]
+    
+    for (let i = 0; i < questionsArray.length; i++) {
+        if (questionsArray[i].id === id.toString()) {
+            if (option === 1) {
+                xmlObj["questions"]["question"][i].option1.$t = Number(xmlObj["questions"]["question"][i].option1.$t) + 1
+            } else if (option === 2) {
+                xmlObj["questions"]["question"][i].option2.$t = Number(xmlObj["questions"]["question"][i].option2.$t) + 1
+            }
+        }
+    }
+    
+    const stringifiedXmlObj = JSON.stringify(xmlObj)
+    const finalXml = xmlParser.toXml(stringifiedXmlObj)
+
+    fs.writeFile("./statistics.xml", formatXml(finalXml, {collapseContent: true}), function(err, result) {
+        if (err) {
+            console.log("error")
+        } else {
+        }
+    })
+})
+}
+
+//console.log(getRandomQuestion());
 //console.log(document.getElementById("Question").innerHTML = getRandomQuestion());
 //doesn't work
