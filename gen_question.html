@@ -3,24 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <title>Would You Rather?</title>
-  <link rel="stylesheet" href="style2.css"/>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald">
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body onload="genQuestion()">
-<h1> Would You Rather? - A conversation party game!</h1>
-<h2> <A HREF = "main.html">Main</A> <A HREF = "statistics.html">Statistics</A> <A HREF = "about.html">About</A> </h2>
+<div id="navbar"><center><h2> <A HREF = "main.html">Main</A> <A HREF = "statistics.html">Statistics</A> <A HREF = "about.html">About</A> </h2></center></div>
+<div id="mainImage"><image></image></div>
+<center><h3> <a id="Question">Would You Rather...</a></h3>
 
-<br>
-
-<h3> <a id="Question">Would You Rather...</a></h3>
 <button id="Option1" onclick="displayOptionStats()">Option 1</button>
 <h3><a> OR </a></h3>
-<button id="Option2" onclick="displayOptionStats()">Option 2</button>
 
-<br><br><br>
+<button id="Option2" onclick="displayOptionStats()">Option 2</button></center>
 
-<p><button onclick="window.location.href='\gen_question.html'">Next Question!</button></p>
-
+<br><br><p><center><button id="NextQuestion" onclick="window.location.href='\gen_question.html'">Next Question!</button></center></p>
 <script src="random.js"></script>
 </body>
 </html>
