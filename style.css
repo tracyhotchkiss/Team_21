@@ -1,0 +1,74 @@
+body {
+		
+		margin-top: 25px;
+		margin-left: 50px;
+		margin-right: 50px;
+		background-color: #000000;
+		color: #53565A;
+	}
+
+	@font-face {
+		font-family: Paper_Flowers;
+		src: 
+			url('Font/Paper_Flowers/Paper_Flowers.ttf')
+	}
+
+	h1 {
+		color: #981E32;
+		font-size: 30px;
+		font-family: Paper_Flowers;
+	}
+
+	h3 {
+		color: 	#981E32;
+		font-size: 30px;
+		font-family: Paper_Flowers;
+	}
+	
+	#navbar {
+		color: black;
+		font-size: 25px;
+		font-family: Paper_Flowers;
+	}
+	
+	#mainImage {
+		background-image: url("images/wyrbg800px.png");
+		background-repeat: no-repeat;
+		background-position: center;
+		height: 400px;
+	}
+
+	p {
+		color: 	#981E32;
+		font-size: 25px;
+		font-family: Paper_Flowers;	
+	}
+
+	#Option1 {
+		background-color: grey;
+		height ="50";
+		size="50";
+		font-family: Paper_Flowers;
+		color: 	#981E32;
+		font-size: 25px;
+	}
+
+	#Option2 {
+		background-color: grey;
+		height ="50";
+		size="50";
+		font-family: Paper_Flowers;
+		color: 	#981E32;
+		font-size: 25px;
+	}
+
+	#NextQuestion {
+		background-color: grey;
+		font-family: Paper_Flowers;
+		color: 	#981E32;
+		font-size: 25px;
+	}
+
+	button {
+		border-radius: 10px;
+	}
