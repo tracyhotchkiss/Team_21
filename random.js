@@ -103,8 +103,16 @@ function updateOption(id, option) {
       if (questionsArray[i].id === id.toString()) {
         if (option === 1) {
           xmlObj["questions"]["question"][i].option1.$t = Number(xmlObj["questions"]["question"][i].option1.$t) + 1
+          let percent1 = Number(xmlObj["questions"]["question"][i].option1.$t)/(Number(xmlObj["questions"]["question"][i].option1.$t) + Number(xmlObj["questions"]["question"][i].option2.$t)) * 100
+          let percent2 = Number(xmlObj["questions"]["question"][i].option2.$t)/(Number(xmlObj["questions"]["question"][i].option1.$t) + Number(xmlObj["questions"]["question"][i].option2.$t)) * 100
+          xmlObj["questions"]["question"][i].option1percent.$t = percent1.toFixed(1) + "%"
+          xmlObj["questions"]["question"][i].option2percent.$t = percent2.toFixed(1) + "%"
         } else if (option === 2) {
           xmlObj["questions"]["question"][i].option2.$t = Number(xmlObj["questions"]["question"][i].option2.$t) + 1
+          let percent1 = Number(xmlObj["questions"]["question"][i].option1.$t)/(Number(xmlObj["questions"]["question"][i].option1.$t) + Number(xmlObj["questions"]["question"][i].option2.$t)) * 100
+          let percent2 = Number(xmlObj["questions"]["question"][i].option2.$t)/(Number(xmlObj["questions"]["question"][i].option1.$t) + Number(xmlObj["questions"]["question"][i].option2.$t)) * 100
+          xmlObj["questions"]["question"][i].option1percent.$t = percent1.toFixed(1) + "%"
+          xmlObj["questions"]["question"][i].option2percent.$t = percent2.toFixed(1) + "%"
         }
       }
     }
