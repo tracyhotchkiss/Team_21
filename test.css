@@ -1,0 +1,24 @@
+/* test.css */
+ option1,option2,option1percent,option2percent{
+  display: table-cell;
+  padding: 5px;
+  margin: 2px;
+  border: thin solid;
+}
+question {
+  display: table-cell;
+  margin: 5em;
+  border: :thin solid;
+}
+option1 {
+  background-color: #87CEFA
+}
+option2 {
+  background-color: #FF69B4
+}
+option1percent {
+  background-color: #87CEFA
+}
+option2percent {
+  background-color: #FF69B4
+}
