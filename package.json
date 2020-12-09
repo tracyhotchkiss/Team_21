@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/tracyhotchkiss/Team_21#readme",
   "dependencies": {
+    "express": "^4.17.1",
     "xml-formatter": "^2.4.0",
     "xml2json": "^0.12.0"
   }
