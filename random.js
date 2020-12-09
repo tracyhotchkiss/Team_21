@@ -60,7 +60,7 @@ function genQuestion(id){
 }
 
 // Updates the option buttons to display the percentage for a given stat
-function displayOptionStats() {
+function displayOptionStats(option) {
 
   // Only update stats once
   if ( m_statsAreCurrentlyDisplayed
@@ -71,7 +71,8 @@ function displayOptionStats() {
   }
   m_statsAreCurrentlyDisplayed = true;
 
-  let percents = getStatArray(m_displayedQuestionIndex);
+  let percents = getQuestionStatArray(m_displayedQuestionIndex);
+  updateOption(m_displayedQuestionIndex+1, option);
 
   // Update percents with array
   let option1 = document.getElementById("Option1").innerHTML;
@@ -82,7 +83,10 @@ function displayOptionStats() {
 
 // Returns an array with the percentage for each option in a question using the question index
 // [Option 1 %, Option 2 %]
-function getStatArray(questionIndex) {
+function getQuestionStatArray(questionIndex, option) {
+
+  // TODO use same implementation as updateOption to read file,
+  // we are still working out the details
 
   // Use Random percentages for now
   let percentOption1 = Math.floor(Math.random() * 100);
