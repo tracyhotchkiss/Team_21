@@ -52,6 +52,8 @@
         <q>Would you rather be an amazing dancer or be great at math?</q>
         <option1>0</option1>
         <option2>0</option2>
+        <option1percent>N/A</option1percent>
+        <option2percent>N/A</option2percent>
     </question>
     <question id="9">
         <q>Would you rather live in a place where it is always hot or always cold?</q>
