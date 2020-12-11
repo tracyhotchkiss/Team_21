@@ -78,19 +78,39 @@ function displayOptionStats(option) {
   let option1 = document.getElementById("Option1").innerHTML;
   let option2 = document.getElementById("Option2").innerHTML;
   document.getElementById("Option1").innerHTML = percents[0] + "%\ \ \ " + option1;
+  document.getElementById("Option1").disabled = true;
   document.getElementById("Option2").innerHTML = percents[1] + "%\ \ \ " + option2;
+  document.getElementById("Option2").disabled = true;
 }
 
 // Returns an array with the percentage for each option in a question using the question index
 // [Option 1 %, Option 2 %]
 function getQuestionStatArray(questionIndex, option) {
 
-  // TODO use same implementation as updateOption to read file,
-  // we are still working out the details
-
-  // Use Random percentages for now
-  let percentOption1 = Math.floor(Math.random() * 100);
-  return [percentOption1, 100 - percentOption1];
+  let index = questionIndex + 1;
+  let option1;
+  let option2;
+  let percentOption1;
+  let percentOption2;
+  $.ajax({
+    async: false,
+    url:"statistics.xml",    
+    type: "GET",   
+    success: function(xml){
+      $xml = $( xml )
+      question = $xml.find('question[id="' + index + '"] q').text();
+      option1 = $xml.find('question[id="' + index + '"] option1').text();
+      option2 = $xml.find('question[id="' + index + '"] option2').text();
+    }
+  });
+  if (Number(option) === 1) {
+    percentOption1 = (Number(option1) + 1) / (Number(option1) + Number(option2) + 1) * 100;
+    percentOption2 = Number(option2) / (Number(option1) + Number(option2) + 1) * 100;
+  } else if (Number(option) === 2) {
+    percentOption1 = Number(option1) / (Number(option1) + Number(option2) + 1) * 100;
+    percentOption2 = (Number(option2) + 1) / (Number(option1) + Number(option2) + 1) * 100;
+  }
+  return [percentOption1.toFixed(2), percentOption2.toFixed(2)];
 }
 
 
@@ -98,7 +118,7 @@ function getQuestionStatArray(questionIndex, option) {
 function updateOption(id, option) {
   $.ajax({
     url:"/update",    
-    type: "POST",    //request type,
+    type: "POST",   
     data: {id: id, option: option},
   });
 }
