@@ -61,7 +61,7 @@ function genQuestion(id){
 
 // Updates the option buttons to display the percentage for a given stat
 function displayOptionStats(option) {
-
+  
   // Only update stats once
   if ( m_statsAreCurrentlyDisplayed
       || m_displayedQuestionIndex < 0
@@ -71,7 +71,7 @@ function displayOptionStats(option) {
   }
   m_statsAreCurrentlyDisplayed = true;
 
-  let percents = getQuestionStatArray(m_displayedQuestionIndex);
+  let percents = getQuestionStatArray(m_displayedQuestionIndex, option);
   updateOption(m_displayedQuestionIndex+1, option);
 
   // Update percents with array
@@ -93,42 +93,14 @@ function getQuestionStatArray(questionIndex, option) {
   return [percentOption1, 100 - percentOption1];
 }
 
+
 // Updates the statistics of the question with a given ID and option selected
 function updateOption(id, option) {
-  const fs = require("fs")
-  const xmlParser = require("xml2json")
-  const formatXml = require("xml-formatter")
-
-  fs.readFile("./statistics.xml", function(err, data) {
-    const xmlObj = xmlParser.toJson(data, {reversible: true, object: true})
-    const questionsArray = xmlObj["questions"]["question"]
-
-    for (let i = 0; i < questionsArray.length; i++) {
-      if (questionsArray[i].id === id.toString()) {
-        if (option === 1) {
-          xmlObj["questions"]["question"][i].option1.$t = Number(xmlObj["questions"]["question"][i].option1.$t) + 1
-          let percent1 = Number(xmlObj["questions"]["question"][i].option1.$t)/(Number(xmlObj["questions"]["question"][i].option1.$t) + Number(xmlObj["questions"]["question"][i].option2.$t)) * 100
-          let percent2 = Number(xmlObj["questions"]["question"][i].option2.$t)/(Number(xmlObj["questions"]["question"][i].option1.$t) + Number(xmlObj["questions"]["question"][i].option2.$t)) * 100
-          xmlObj["questions"]["question"][i].option1percent.$t = percent1.toFixed(1) + "%"
-          xmlObj["questions"]["question"][i].option2percent.$t = percent2.toFixed(1) + "%"
-        } else if (option === 2) {
-          xmlObj["questions"]["question"][i].option2.$t = Number(xmlObj["questions"]["question"][i].option2.$t) + 1
-          let percent1 = Number(xmlObj["questions"]["question"][i].option1.$t)/(Number(xmlObj["questions"]["question"][i].option1.$t) + Number(xmlObj["questions"]["question"][i].option2.$t)) * 100
-          let percent2 = Number(xmlObj["questions"]["question"][i].option2.$t)/(Number(xmlObj["questions"]["question"][i].option1.$t) + Number(xmlObj["questions"]["question"][i].option2.$t)) * 100
-          xmlObj["questions"]["question"][i].option1percent.$t = percent1.toFixed(1) + "%"
-          xmlObj["questions"]["question"][i].option2percent.$t = percent2.toFixed(1) + "%"
-        }
-      }
-    }
-
-    const stringifiedXmlObj = JSON.stringify(xmlObj)
-    const finalXml = xmlParser.toXml(stringifiedXmlObj)
-
-    fs.writeFile("./statistics.xml", formatXml(finalXml, {collapseContent: true}), function(err, result) {
-      if (err) {
-        console.log("error")
-      } else {
-      }
-    })
-  })
+  $.ajax({
+    url:"/update",    
+    type: "POST",    //request type,
+    data: {id: id, option: option},
+  });
 }
+
+  
