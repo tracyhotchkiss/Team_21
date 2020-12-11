@@ -1,22 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+
+
   <meta charset="UTF-8">
   <title>Would You Rather?</title>
-  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="style2.css"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald">
 </head>
+
+
 <body>
-<h1> Would You Rather? - A conversation party game!</h1>
-<div id="navbar"><h2><center> <A HREF = "main.html">Main</A> <A HREF = "about.html">About</A></center> </h2></div>
-<h3>Statistics and Questions</h3>
+  <h1> Would You Rather? - A conversation party game!</h1>
+  <h2> <A HREF = "main.html">Main</A> <A HREF = "about.html">About</A> </h2>
+  <h3>Statistics and Questions</h3>
+  
+    <h3><table id = "questions_data">
 
-<p>Question - Option1 - stats - Option2 - stats</p>
-<p>Question - Option1 - stats - Option2 - stats</p>
-<p>Question - Option1 - stats - Option2 - stats</p>
-<p>Question - Option1 - stats - Option2 - stats</p>
-<p>Question - Option1 - stats - Option2 - stats</p>
-<p>Question - Option1 - stats - Option2 - stats</p>
+      <tr><th>Question</th><th> Option1  </th><th>  Stats  </th><th>  Option2  </th><th>  Stats  </th></tr>
+
+    </table></h3>
 
 
+  <script>
+     $(document).ready(function(){
+           $.ajax({
+               type: "GET",
+               url: "statistics.xml",
+               dataType: "html",
+               success: function(xml){
+                 console.log("here");$
+                   $(xml).find('question').each(function(){
+                       var question = $(this).find('q').text();
+                       var option1 = $(this).find('option1').text();
+                       var option2 = $(this).find('option2').text();
+                       var percent1 = $(this).find('option1percent').text();
+                       var percent2 = $(this).find('option2percent').text();
+                       $('<tr></tr>').html('<th>' +question+ '</th><td>' +option1+ '</td><td>' +percent1+ '</td><td>' +option2+ '</td><td>' +percent2+ '</td>').appendTo('#questions_data');
+                   });
+               }
+           });
+   });
+  </script>
 </body>
-</html>
