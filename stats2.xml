@@ -1,3 +1,6 @@
+<?xml version="1.0" ?>
+<?xml-stylesheet rel="stylesheet" href="test.css" ?>
+
 <questions>
     <question id="1">
         <q>Would you rather have telepathy or telekinesis?</q>
