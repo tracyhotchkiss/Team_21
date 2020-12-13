@@ -16,19 +16,19 @@ body {
 	h1 {
 		color: #981E32;
 		font-size: 30px;
-		font-family: Paper_Flowers;
+    font-family: Paper_Flowers, serif;
 	}
 
 	h3 {
 		color: 	#981E32;
 		font-size: 30px;
-		font-family: Paper_Flowers;
+    font-family: Paper_Flowers, serif;
 	}
 	
 	#navbar {
 		color: black;
 		font-size: 25px;
-		font-family: Paper_Flowers;
+    font-family: Paper_Flowers, serif;
 	}
 	
 	#mainImage {
@@ -41,30 +41,44 @@ body {
 	p {
 		color: 	#981E32;
 		font-size: 25px;
-		font-family: Paper_Flowers;	
+    font-family: Paper_Flowers, serif;	
 	}
 
 	#Option1 {
-		background-color: grey;
-		height ="50";
-		size="50";
-		font-family: Paper_Flowers;
+		background-color: #a6a6a6;
+		height: 50px;
+		size: 50px;
+    border: 1px solid grey;
+    font-family: Paper_Flowers, serif;
 		color: 	#981E32;
 		font-size: 25px;
 	}
 
 	#Option2 {
-		background-color: grey;
-		height ="50";
-		size="50";
-		font-family: Paper_Flowers;
+		background-color: #a6a6a6;
+		height: 50px;
+		size: 50px;
+    border: 1px solid grey;
+    font-family: Paper_Flowers, serif;
 		color: 	#981E32;
 		font-size: 25px;
 	}
 
+#or {
+  background-color: black;
+  height: 50px;
+  size: 50px;
+  border: 1px solid black;
+  font-family: Paper_Flowers, serif;
+  color: 	#981E32;
+  font-weight: bold;
+  font-size: 30px;
+}
+
 	#NextQuestion {
-		background-color: grey;
-		font-family: Paper_Flowers;
+    background-color: #a6a6a6;
+    border: 1px solid grey;
+    font-family: Paper_Flowers, serif;
 		color: 	#981E32;
 		font-size: 25px;
 	}

@@ -1,3 +1,7 @@
+// Would You Rather? Website
+// Team 21
+// Fundamentals of Software Engineering
+
 let m_questions = ['Would you rather Have telepathy or Have telekinesis',
   'Would you rather Be hot all the time or Be Cold all the time',
   'Would you rather Control space or Control time',
@@ -39,12 +43,13 @@ let m_questions = ['Would you rather Have telepathy or Have telekinesis',
   'Would you rather See what was behind every closed door or Be able to guess the combination of every safe on the first try',
   'Would you rather Be an average person in the present or Be a king of a large country 2500 years ago',
   'Would you rather Be forced to dance every time you heard music or Be forced to sing along to any song you heard',
-  'Would you rather 5% of the population have telepathy, or 5% of the population have telekinesis',
+  'Would you rather 5 percent of the population have telepathy, or 5 percent of the population have telekinesis',
   'Would you rather Be completely insane and know that you are insane or Be completely insane and believe you are sane'];
 
 let m_displayedQuestionIndex = -1;
 let m_statsAreCurrentlyDisplayed = false;
 
+// Return a random question from the member array
 function getRandomQuestion() {
   m_displayedQuestionIndex = Math.floor(Math.random() * m_questions.length);
   return m_questions[m_displayedQuestionIndex];
@@ -81,6 +86,14 @@ function displayOptionStats(option) {
   document.getElementById("Option1").disabled = true;
   document.getElementById("Option2").innerHTML = percents[1] + "%\ \ \ " + option2;
   document.getElementById("Option2").disabled = true;
+
+  if ( option === 1 ) {
+    document.getElementById("Option1").style.background="c9c9c9";
+    document.getElementById("Option1").style.border = "solid #FFFFFF";
+  } else if ( option === 2 ) {
+    document.getElementById("Option2").style.background="c9c9c9";
+    document.getElementById("Option2").style.border = "solid #FFFFFF";
+  }
 }
 
 // Returns an array with the percentage for each option in a question using the question index
@@ -92,6 +105,9 @@ function getQuestionStatArray(questionIndex, option) {
   let option2;
   let percentOption1;
   let percentOption2;
+
+  // Query database to retrieve question statistics
+  // Store results in a local variable upon success
   $.ajax({
     async: false,
     url:"statistics.xml",    
@@ -103,6 +119,9 @@ function getQuestionStatArray(questionIndex, option) {
       option2 = $xml.find('question[id="' + index + '"] option2').text();
     }
   });
+
+  // Calculate the percentage using data collected from XML database
+  // and update the relevant question
   if (Number(option) === 1) {
     percentOption1 = (Number(option1) + 1) / (Number(option1) + Number(option2) + 1) * 100;
     percentOption2 = Number(option2) / (Number(option1) + Number(option2) + 1) * 100;
@@ -110,6 +129,7 @@ function getQuestionStatArray(questionIndex, option) {
     percentOption1 = Number(option1) / (Number(option1) + Number(option2) + 1) * 100;
     percentOption2 = (Number(option2) + 1) / (Number(option1) + Number(option2) + 1) * 100;
   }
+
   return [percentOption1.toFixed(2), percentOption2.toFixed(2)];
 }
 

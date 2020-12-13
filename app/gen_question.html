@@ -7,16 +7,18 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   <script type="text/javascript" src="random.js"></script>
 </head>
+
 <body onload="genQuestion()">
 <div id="navbar"><center><h2> <A HREF = "main.html">Main</A> <A HREF = "statistics.html">Statistics</A> <A HREF = "about.html">About</A> </h2></center></div>
 <div id="mainImage"><image></image></div>
-<center><h3> <a id="Question">Would You Rather...</a></h3>
+<div style="text-align: center;"><h3> <a id="Question">Would You Rather...</a></h3>
 
-<button id="Option1" onclick="displayOptionStats(1)">Option 1</button>
-<h3><a> OR </a></h3>
+<div id="outerQuestion" style="display: inline; line-height: 400%">
+  <button id="Option1" onclick="displayOptionStats(1)">Option 1</button>
+  <button id = "or" disabled>OR</button>
+  <button id="Option2" onclick="displayOptionStats(2)">Option 2</button></div>
+</div>
 
-<button id="Option2" onclick="displayOptionStats(2)">Option 2</button></center>
-
-<br><br><p><center><button id="NextQuestion" onclick="window.location.href='\gen_question.html'">Next Question!</button></center></p>
+<br><p><center><button id="NextQuestion" onclick="window.location.href='\gen_question.html'">Next Question!</button></center></p>
 </body>
 </html>

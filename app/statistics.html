@@ -1,45 +1,41 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   <link rel="stylesheet" href="style.css">
-
-
   <meta charset="UTF-8">
   <title>Would You Rather?</title>
  </head>
 
-
 <body>
   <center><h1> Would You Rather? - A conversation party game!</h1></center>
   <div id="navbar"><h2><center> <A HREF = "main.html">Main</A> <A HREF = "about.html">About</A></center> </h2></div>
-   <center><h3>Statistics and Questions</h3></center>
+  <center><h3>Statistics and Questions</h3></center>
   
-    <h3><table id = "questions_data">
-
-      <tr><th>Question</th><th> Option1  </th><th>  Stats  </th><th>  Option2  </th><th>  Stats  </th></tr>
-
-    </table></h3>
-
+  <h3><table id = "questions_data">
+    <tr><th>Question</th><th> Option1  </th><th>  Stats  </th><th>  Option2  </th><th>  Stats  </th></tr>
+  </table></h3>
 
   <script>
      $(document).ready(function(){
-           $.ajax({
-               type: "GET",
-               url: "statistics.xml",
-               dataType: "html",
-               success: function(xml){
-                 console.log("here");$
-                   $(xml).find('question').each(function(){
-                       var question = $(this).find('q').text();
-                       var option1 = $(this).find('option1').text();
-                       var option2 = $(this).find('option2').text();
-                       var percent1 = $(this).find('option1percent').text();
-                       var percent2 = $(this).find('option2percent').text();
-                       $('<tr></tr>').html('<th>' +question+ '</th><td>' +option1+ '</td><td>' +percent1+ '</td><td>' +option2+ '</td><td>' +percent2+ '</td>').appendTo('#questions_data');
-                   });
-               }
+       $.ajax({
+         type: "GET",
+         url: "statistics.xml",
+         dataType: "html",
+         success: function(xml){
+           console.log("here");
+           $(xml).find('question').each(function(){
+             var question = $(this).find('q').text();
+             var option1 = $(this).find('option1').text();
+             var option2 = $(this).find('option2').text();
+             var percent1 = $(this).find('option1percent').text();
+             var percent2 = $(this).find('option2percent').text();
+             $('<tr></tr>').html('<th>' +question+ '</th><td>' +option1+ '</td><td>' +percent1+
+                 '</td><td>' +option2+ '</td><td>' +percent2+ '</td>').appendTo('#questions_data');
            });
-   });
+         }
+       });
+     });
   </script>
 </body>
