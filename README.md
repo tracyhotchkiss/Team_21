@@ -5,6 +5,7 @@
   2.    Allow users to respond to the “Would you rather” questions and provide fun user stats based on user responses. 
   
 Operation Instructions:
+
     Requires Node.js to run (tested on version >=14.15.0)
     1. On a command terminal in the project app directory (contains main.js), run the command "node main.js"
     2. The terminal should report that the server is running on port 8080
