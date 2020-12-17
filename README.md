@@ -15,10 +15,10 @@ Operation Instructions:
     Contact lane.koistinen@wsu.edu if you have any issues.
 
 Team Members:  
-    Tracy Hotchkiss  
-    Lane Koistinen  
-    Kelly St.Onge  
-    Brian Hong
+- Tracy Hotchkiss  
+- Lane Koistinen  
+- Kelly St.Onge  
+- Brian Hong
 
 Current Status of Project: 
 
