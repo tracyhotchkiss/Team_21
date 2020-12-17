@@ -6,7 +6,7 @@
   
 Operation Instructions:
 
-    Requires Node.js to run (tested on version >=14.15.0)
+    Requires Node.js to run (Requires Node version 14.x.x due to module dependencies)
     1. On a command terminal in the project app directory (contains main.js), run the command "node main.js"
     2. The terminal should report that the server is running on port 8080
     3. Go to http://localhost:8080/ in Chrome, Edge, or Firefox.
